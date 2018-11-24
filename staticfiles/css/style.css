@@ -1,0 +1,36 @@
+.container-fluid {
+    max-width: 1280px;
+    background: white;
+}
+
+.title-head {
+    color: #FF084E;
+}
+
+.background-nav{
+    background: #ff086fc7;
+    color: white;
+}
+
+.nav.navbar-nav.navbar-right * {
+    color: white;
+}
+
+#language_selector select {
+    width: 100%;
+}
+
+.well {
+    background: transparent;
+    border-color:#ff086fc7;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #ff086fc7;
+    border-color: #ff086fc7;
+}
+
+.sub-header{
+    display:none !important;
+}
