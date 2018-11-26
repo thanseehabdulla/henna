@@ -15,10 +15,8 @@ from oscar.defaults import *
 from oscar import OSCAR_MAIN_TEMPLATE_DIR
 from oscar import get_core_apps
 
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
@@ -31,20 +29,19 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
-
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-'django.contrib.sites',
-'django.contrib.flatpages',
-    'widget_tweaks',
-] + get_core_apps()
+                     'django.contrib.admin',
+                     'django.contrib.auth',
+                     'django.contrib.contenttypes',
+                     'django.contrib.sessions',
+                     'django.contrib.messages',
+                     'django.contrib.staticfiles',
+                     'django.contrib.sites',
+                     'django.contrib.flatpages',
+                     'widget_tweaks',
+                 ] + get_core_apps()
 
 SITE_ID = 1
 
@@ -56,7 +53,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-'oscar.apps.basket.middleware.BasketMiddleware',
+    'oscar.apps.basket.middleware.BasketMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 ]
 
@@ -65,8 +63,8 @@ ROOT_URLCONF = 'onlineshop.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [ os.path.join(BASE_DIR, 'templates'),
-            OSCAR_MAIN_TEMPLATE_DIR],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'),
+                 OSCAR_MAIN_TEMPLATE_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -87,7 +85,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'onlineshop.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
@@ -102,8 +99,6 @@ DATABASES = {
         'ATOMIC_REQUESTS': True,
     }
 }
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -123,7 +118,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
@@ -137,7 +131,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
@@ -149,6 +142,8 @@ STATICFILES_DIRS = (
 )
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 AUTHENTICATION_BACKENDS = (
     'oscar.apps.customer.auth_backends.EmailBackend',
@@ -166,17 +161,15 @@ OSCAR_SHOP_TAGLINE = "Hand Crafting"
 OSCAR_PRODUCTS_PER_PAGE = "20"
 OSCAR_OFFERS_PER_PAGE = "15"
 OSCAR_REVIEWS_PER_PAGE = "10"
-OSCAR_DEFAULT_CURRENCY ="$"
+OSCAR_DEFAULT_CURRENCY = "$"
 
 location = lambda x: os.path.join(
-os.path.dirname(os.path.realpath(__file__)), x)
-
+    os.path.dirname(os.path.realpath(__file__)), x)
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = location('media')
 THUMBNAIL_DEBUG = True
 THUMBNAIL_KEY_PREFIX = 'oscar-sandbox'
-
 
 # email configuration
 EMAIL_USE_TLS = True
