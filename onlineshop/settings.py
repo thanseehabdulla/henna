@@ -176,3 +176,11 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = location('media')
 THUMBNAIL_DEBUG = True
 THUMBNAIL_KEY_PREFIX = 'oscar-sandbox'
+
+
+# email configuration
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'abdulla.thanseeh@simelabs.com'
+EMAIL_HOST_PASSWORD = 'z4yedRaseel'

@@ -1,4 +1,0 @@
-django-oscar
-django-widget-tweaks
-pycountry
-
