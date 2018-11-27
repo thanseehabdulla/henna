@@ -2,7 +2,7 @@
 from django.contrib import admin
 from django.urls import include, path  # > Django-2.0
 from oscar.app import application
-from onlineshop.settings import MEDIA_ROOT, MEDIA_URL
+from onlineshop.settings import MEDIA_ROOT, MEDIA_URL, DEBUG
 from django.conf.urls.static import static
 
 urlpatterns = [
@@ -18,10 +18,12 @@ urlpatterns = [
     # url(r'', application.urls),
     path('', application.urls),  # > Django-2.0
 ]
-urlpatterns += static(MEDIA_URL, document_root=MEDIA_ROOT)
+
 
 # if settings.DEBUG:
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 # Serve static and media files from development server
-urlpatterns += staticfiles_urlpatterns()
+if DEBUG is True:
+    urlpatterns += static(MEDIA_URL, document_root=MEDIA_ROOT)
+    urlpatterns += staticfiles_urlpatterns()
 
