@@ -36,7 +36,7 @@
 }
 
 @media screen and (max-width: 768px) {
-    #promotions a img{
+    div#promotions a img{
         width:245px;
     }
 }
