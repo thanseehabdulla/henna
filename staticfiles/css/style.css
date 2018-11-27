@@ -34,3 +34,9 @@
 .sub-header{
     display:none !important;
 }
+
+@media screen and (max-width: 768px) {
+    #promotions a img{
+        width:245px;
+    }
+}
