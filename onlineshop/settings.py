@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+
+import dj_database_url
 from oscar.defaults import *
 from oscar import OSCAR_MAIN_TEMPLATE_DIR
 from oscar import get_core_apps
@@ -90,14 +92,22 @@ WSGI_APPLICATION = 'onlineshop.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': 'db.sqlite3',
+    #     'USER': '',
+    #     'PASSWORD': '',
+    #     'HOST': '',
+    #     'PORT': '',
+    #     'ATOMIC_REQUESTS': True,
+    # }
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'db.sqlite3',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
-        'ATOMIC_REQUESTS': True,
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'thanseeh',
+        'USER': 'thanseeh',
+        'PASSWORD': 'namoideen',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
